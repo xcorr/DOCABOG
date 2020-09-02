@@ -4,29 +4,29 @@
     <ion-grid>
       <ion-row>
         <ion-col>
-          <form>
+          <form [formGroup]="registerForm">
             <ion-item>
               <ion-label position="floating">Name</ion-label>
-              <ion-input></ion-input>
+              <ion-input type="text" formControlName="name"></ion-input>
             </ion-item>
             <ion-item>
               <ion-label position="floating">Phone</ion-label>
-              <ion-input></ion-input>
+              <ion-input  type="text" formControlName="phone"></ion-input>
             </ion-item>
             <ion-item>
               <ion-label position="floating">Email</ion-label>
-              <ion-input></ion-input>
+              <ion-input type="text" formControlName="email"></ion-input>
             </ion-item>
             <ion-item>
               <ion-label position="floating">Password</ion-label>
-              <ion-input></ion-input>
+              <ion-input type="password" formControlName="password"></ion-input>
             </ion-item>
             <ion-item>
               <ion-label position="floating">Confirm Password</ion-label>
-              <ion-input></ion-input>
+              <ion-input type="password" formControlName="password2"></ion-input>
             </ion-item>
             <br>
-            <ion-button shape="round">Create User</ion-button>
+            <ion-button shape="round" [disabled]="registerForm.invalid" (click)="createUser()">Create User</ion-button>
           </form>
         </ion-col>
       </ion-row>
