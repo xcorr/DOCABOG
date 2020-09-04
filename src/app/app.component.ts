@@ -27,17 +27,8 @@ export class AppComponent {
     });
   }
 
-  openFirst() {
-    this.menu.enable(true, 'first');
-    this.menu.open('first');
-  }
-
-  openEnd() {
-    this.menu.open('end');
-  }
-
-  openCustom() {
-    this.menu.enable(true, 'custom');
-    this.menu.open('custom');
+  LogOut(){
+    localStorage.clear();
+    window.location.reload();
   }
 }

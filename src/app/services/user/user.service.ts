@@ -9,7 +9,14 @@ import Swal from 'sweetalert2';
 export class UserService {
 
   constructor(private firebasedb: AngularFireDatabase, private Auth: AngularFireAuth ) { }
-  
+
+  logged(){
+    if(localStorage.getItem('user') != null){
+      return true;
+    }else{
+      return false;
+    }
+  }
 
   addUser(username: string, email: string, password: string){
 
@@ -21,14 +28,13 @@ export class UserService {
           displayName: username,
           photoURL: 'foto aqui'
         }).then((data)=>{
-          localStorage.setItem('user', JSON.stringify(data));
         });
 
         user.sendEmailVerification().then((returnedData)=> {
           console.warn(returnedData);
           Swal.fire({
             icon: 'success',
-            title: 'Registro exitoso!',
+            title: 'Register successfully, please verify you email before access!',
             showConfirmButton: false,
             timer: 2000
           });
@@ -87,8 +93,6 @@ export class UserService {
   loginUser( email: string, password: string){
 
     this.Auth.signInWithEmailAndPassword( email, password).then((userData)=>{
-
-      localStorage.setItem('user', JSON.stringify(userData));
       console.warn(userData);
       const isVerified = userData.user.emailVerified;
       const userName = userData.user.displayName;
@@ -99,6 +103,8 @@ export class UserService {
           showConfirmButton: false,
           timer: 2000
         })
+        localStorage.setItem('user', JSON.stringify(userData));
+        window.location.reload();
         return 'verified';
       }else{
         Swal.fire({
