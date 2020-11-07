@@ -6,6 +6,14 @@
         <ion-col>
           <form [formGroup]="registerForm">
             <ion-item>
+              <ion-label>Tipo de Usuario</ion-label>
+              <ion-select formControlName="type">
+                <ng-container *ngFor="let tp of userType">
+                  <ion-select-option value="{{tp}}">{{tp}}</ion-select-option>
+                </ng-container>
+              </ion-select>
+            </ion-item>
+            <ion-item>
               <ion-label position="floating">Name</ion-label>
               <ion-input type="text" formControlName="name"></ion-input>
             </ion-item>
@@ -26,7 +34,8 @@
               <ion-input type="password" formControlName="password2"></ion-input>
             </ion-item>
             <br>
-            <ion-button shape="round" [disabled]="registerForm.invalid" (click)="createUser()">Create User</ion-button>
+            <ion-button shape="round" (click)="createUser()">Create User</ion-button>
+            <ion-button shape="round" (click)="googleLogin()">Google Login</ion-button>
           </form>
         </ion-col>
       </ion-row>

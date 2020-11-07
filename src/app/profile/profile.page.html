@@ -1,0 +1,104 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+  <ion-content [fullscreen]="true">
+    <div id="container">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="10" offset="1">
+            <mat-grid-list cols="2" rowHeight="2:1">
+              <mat-grid-tile><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTeBP9xUtWC1RLxoEa9YqfNGFlBeSn-HBNSZQ&usqp=CAU" id="profile-photo"></mat-grid-tile>
+              <mat-grid-tile><h1>fdsfsd</h1></mat-grid-tile>
+            </mat-grid-list>
+            <mat-tab-group>
+              <mat-tab>
+                <ng-template mat-tab-label>
+                  <mat-icon class="example-tab-icon">account_circle</mat-icon>
+                  Profile
+                </ng-template>
+                Content 1
+              </mat-tab>
+            
+              <mat-tab>
+                <ng-template mat-tab-label>
+                  <mat-icon class="example-tab-icon">mode_edit</mat-icon>
+                   Update
+                </ng-template>
+                
+                <div id="update-container">
+                  <mat-accordion class="example-headers-align" multi>
+                    <mat-expansion-panel>
+                      <mat-expansion-panel-header>
+                        <mat-panel-title>
+                          Personal Information
+                        </mat-panel-title>
+                      </mat-expansion-panel-header>
+                  
+                      <form class="example-form">
+                        <mat-form-field class="example-full-width">
+                          <mat-label>Favorite food</mat-label>
+                          <input matInput placeholder="Ex. Pizza" value="Sushi">
+                        </mat-form-field>
+                      
+                        <mat-form-field class="example-full-width">
+                          <mat-label>Leave a comment</mat-label>
+                          <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+                        </mat-form-field>
+                      </form>
+                  
+                    </mat-expansion-panel>
+                    <mat-expansion-panel >
+                      <mat-expansion-panel-header>
+                        <mat-panel-title>
+                          Academic Information
+                        </mat-panel-title>
+                      </mat-expansion-panel-header>
+                  
+                      <form class="example-form">
+                        <mat-form-field class="example-full-width">
+                          <mat-label>Favorite food</mat-label>
+                          <input matInput placeholder="Ex. Pizza" value="Sushi">
+                        </mat-form-field>
+                      
+                        <mat-form-field class="example-full-width">
+                          <mat-label>Leave a comment</mat-label>
+                          <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+                        </mat-form-field>
+                      </form>
+
+                    </mat-expansion-panel>
+                  
+                    <mat-expansion-panel>
+                      <mat-expansion-panel-header>
+                        <mat-panel-title>
+                          Account Settings
+                        </mat-panel-title>
+                      </mat-expansion-panel-header>
+                  
+                      <form class="example-form">
+                        <mat-form-field class="example-full-width">
+                          <mat-label>Favorite food</mat-label>
+                          <input matInput placeholder="Ex. Pizza" value="Sushi">
+                        </mat-form-field>
+
+                        <mat-form-field class="example-full-width">
+                          <mat-label>Leave a comment</mat-label>
+                          <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+                        </mat-form-field>
+                      </form>
+                    </mat-expansion-panel>
+                  </mat-accordion>
+                </div>
+
+              </mat-tab>
+              
+            </mat-tab-group>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </ion-content>
+

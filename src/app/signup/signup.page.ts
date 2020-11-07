@@ -15,6 +15,15 @@ export class SignupPage implements OnInit {
 
   registerForm: FormGroup;
 
+  userType = [
+    "Cliente",
+    "Tasador",
+    "Agrimensor",
+    "Notario",
+    "Alguacil",
+    "Abogado"
+  ];
+
   constructor(private userService: UserService, private router: Router, private formBuilder: FormBuilder) { }
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
@@ -22,7 +31,8 @@ export class SignupPage implements OnInit {
       phone : ['', [Validators.required]],
       email : ['', [Validators.required]],
       password : ['', [Validators.required]],
-      password2 : ['', [Validators.required]]
+      password2 : ['', [Validators.required]],
+      type: ['', [Validators.required]]
     });
   }
 
@@ -37,8 +47,14 @@ export class SignupPage implements OnInit {
       this.userService.addUser(name, email, password);
 
     }
+  }
 
-    this.router.navigate(['/list']);
+  googleLogin(){
+    try{
+      this.userService.googleLogin();
+    }catch(err){
+      console.log(err)
+    }
   }
 
 }

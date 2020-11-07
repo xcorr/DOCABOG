@@ -12,17 +12,28 @@
   <ion-menu side="start" menuId="first" contentId="content1">
     <ion-header>
       <ion-toolbar>
-        <ion-title>Navigate</ion-title>
+        <ion-title>Main Menu</ion-title>
       </ion-toolbar>
     </ion-header>
     <ion-content>
       <ion-list>
-        <ion-menu-toggle auto-hide="true">
-          <ion-item [routerLink]="pages.url" routerDirection="forward">
-              <ion-icon [name]="pages.icon" slot="start"></ion-icon>
-          </ion-item>
-        </ion-menu-toggle>
-        </ion-list>
+
+        <ng-container *ngIf="user != null">
+          <ion-menu-toggle auto-hide="true">
+            <ion-item (click)="logOut()"><ion-icon name="log-out-outline"></ion-icon> Log Out</ion-item>
+          </ion-menu-toggle>
+          <ion-menu-toggle auto-hide="true">
+            <ion-item [routerLink]="['/profile']"><ion-icon name="person-circle-outline"></ion-icon> My Profile</ion-item>
+          </ion-menu-toggle>
+          <ion-menu-toggle auto-hide="true">
+            <ion-item [routerLink]="['/profile']"><ion-icon name="hammer-outline"></ion-icon> Workspace</ion-item>
+          </ion-menu-toggle>
+          <ion-menu-toggle auto-hide="true">
+            <ion-item><ion-icon name="help-circle-outline"></ion-icon> Tutorial</ion-item>
+          </ion-menu-toggle>
+        </ng-container>
+
+      </ion-list>
     </ion-content>
   </ion-menu>
 <ion-router-outlet id="content1"></ion-router-outlet>
