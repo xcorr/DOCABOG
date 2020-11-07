@@ -31,11 +31,19 @@ export class LoginPage implements OnInit {
     let result = this.userService.loginUser(email, password);
 
     if(JSON.stringify(result) == 'verified'){
-      this.router.navigate(['/list']);
+      window.location.reload();
     }
   }
 
   recoverPassword(){
+  }
+
+  googleLogin(){
+    try{
+      this.userService.googleLogin();
+    }catch(err){
+      console.log(err)
+    }
   }
 
 }

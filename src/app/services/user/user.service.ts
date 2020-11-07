@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireDatabase, AngularFireList} from '@angular/fire/database';
 import { AngularFireAuth } from "@angular/fire/auth";
 import Swal from 'sweetalert2';
+import { auth } from 'firebase/app';
 
 @Injectable({
   providedIn: 'root'
@@ -31,7 +32,6 @@ export class UserService {
         });
 
         user.sendEmailVerification().then((returnedData)=> {
-          console.warn(returnedData);
           Swal.fire({
             icon: 'success',
             title: 'Register successfully, please verify you email before access!',
@@ -178,6 +178,29 @@ export class UserService {
       })
       
     })
+  }
+
+  googleLogin(){
+
+    return this.Auth.signInWithPopup( new auth.GoogleAuthProvider())
+    .then((result)=>{
+      console.log(result);
+
+      const userName = result.user.displayName;
+
+      Swal.fire({
+        icon: 'success',
+        title: 'Welcome '+userName,
+        showConfirmButton: false,
+        timer: 2000
+      })
+      localStorage.setItem('user', JSON.stringify(result));
+      window.location.reload();
+
+    }).catch((err)=>{
+      console.log(err);
+    });
+
   }
 
 }

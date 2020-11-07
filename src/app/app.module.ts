@@ -13,6 +13,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from '../environments/environment';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,7 +24,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
               AngularFireModule.initializeApp(environment.firebase),
                AngularFireDatabaseModule,
                ReactiveFormsModule,
-               FormsModule],
+               FormsModule,
+               BrowserAnimationsModule],
   providers: [
     StatusBar,
     SplashScreen,
